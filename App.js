@@ -13,6 +13,13 @@ function HomeScreen({ navigation }) {
           navigation.navigate("Async")
         }
       />
+
+<Button style={styles.button}
+        title="Go to ToDo"
+        onPress={() =>
+          navigation.navigate("Todo")
+        }
+      />
         </View>
 
     )
@@ -27,7 +34,8 @@ export default function App() {
     <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Async" getComponent={() => require("./src/Async").default} />
+            <Stack.Screen name="Async" getComponent={() => require("./component/Async").default} />
+            <Stack.Screen name="Todo" getComponent={() => require("./component/Todo").default} />
         </Stack.Navigator>
     </NavigationContainer>
   );
