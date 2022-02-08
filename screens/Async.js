@@ -55,14 +55,12 @@ const Async = () => {
                 uri: "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
             }
         }
-        />
+        /> <
+        Text style = { styles.text } > Hi { name } < /Text> <
+        Text style = { styles.text } > Don 't know what to watch tonight? Start browsing movies and save them to your favorites!</Text>
 
         <
-        Text style = { styles.text } > { name } < /Text> <
-        Text style = { styles.text } > Heeey what 's your name??</Text>
-
-        <
-        TextInput placeholder = "My name is.."
+        TextInput placeholder = "What's your name?"
         style = { styles.textInput }
         onChangeText = {
             (text) => setName(text) }
@@ -82,7 +80,10 @@ const Async = () => {
             () => remove() } >
         <
         Text > Delete name < /Text> <
-        /TouchableOpacity> <
+        /TouchableOpacity>
+
+
+        <
         /View>
     );
 }
