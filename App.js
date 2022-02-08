@@ -2,16 +2,17 @@ import { StyleSheet, Platform } from 'react-native';
 import NavigationTabs from './navigation/NavigationTabs';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import logger from 'redux-logger';
+import {createStore, applyMiddleware} from 'redux';
+import rootReducer from './reducers/rootReducer';
 
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 export default function App() {
-    return ( <
-        Provider store = { store } >
-        <
-        NavigationTabs / >
-        <
-        /Provider>
+    return ( 
+        <Provider store = {store}>
+        <NavigationTabs />
+        </Provider>
     );
 }
 
@@ -21,11 +22,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-        ...Platform.select({
-            ios: { backgroundColor: 'blue' },
-            android: { backgroundColor: 'grey' },
-            default: { backgroundColor: 'white' }
-        })
     },
 
 });

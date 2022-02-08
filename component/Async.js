@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { View, StyleSheet, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Image, TextInput, TouchableOpacity, Platform } from 'react-native';
 
 const Async = () => {
 
@@ -45,45 +45,34 @@ const Async = () => {
         load()
     }, [])
 
-    return ( <
-        View style = { styles.container } >
-        <
-        Image style = { styles.image }
+    return ( 
+        <View style = { styles.container } >
+        <Image style = { styles.image }
         source = {
             {
-                uri: "https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
+                uri: "https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720__340.jpg",
             }
         }
-        /> <
-        Text style = { styles.text } > Hi { name } < /Text> <
-        Text style = { styles.text } > Don 't know what to watch tonight? Start browsing movies and save them to your favorites!</Text>
+        /> 
+        <Text style = { styles.text } > Hi, { name } </Text> 
+        <Text style = { styles.text } > Keep track of your busy days</Text>
 
-        <
-        TextInput placeholder = "What's your name?"
+        <TextInput placeholder = "What's your name?"
         style = { styles.textInput }
         onChangeText = {
             (text) => setName(text) }
         />
 
-        <
-        TouchableOpacity style = { styles.touchableOpacity }
+        <TouchableOpacity style = {styles.touchableOpacity}
         onPress = {
-            () => save() } >
-        <
-        Text > Save name < /Text> <
-        /TouchableOpacity>
+        () => save() } >
+        <Text>Save name</Text></TouchableOpacity>
 
-        <
-        TouchableOpacity style = { styles.touchableOpacity }
+        <TouchableOpacity style = {styles.touchableOpacity}
         onPress = {
-            () => remove() } >
-        <
-        Text > Delete name < /Text> <
-        /TouchableOpacity>
-
-
-        <
-        /View>
+        () => remove() } >
+        <Text>Delete name</Text></TouchableOpacity>
+        </View>
     );
 }
 
@@ -91,7 +80,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: 'white'
+        ...Platform.select({
+            ios: { backgroundColor: 'lightgrey' },
+            android: { backgroundColor: 'blue' },
+            default: { backgroundColor: 'white' }
+        })
     },
     image: {
         width: "100%",
@@ -106,16 +99,16 @@ const styles = StyleSheet.create({
 
     },
     textInput: {
-        borderRadius: 5,
         borderWidth: 2,
-        borderColor: "black",
-        fontSize: 20,
-        height: 50,
-        margin: 25,
+        height: 55,
+        padding: 10,
+        margin: 10,
+        alignItems: 'center',
+        borderRadius: 9,
     },
     touchableOpacity: {
         justifyContent: "center",
-        alignSelf: "stretch",
+        alignSelf: "center",
         borderRadius: 5,
         marginTop: 25,
         paddingHorizontal: 32,
@@ -123,8 +116,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 32,
         borderWidth: 2,
         borderColor: "black",
-
-
     }
 })
 
