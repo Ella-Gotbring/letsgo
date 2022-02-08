@@ -46,8 +46,7 @@ const Async = () => {
     }, [])
 
     return ( <
-        View style = { styles.container } > { /* <Image source = {require('./assets/welcome.png')} style = {styles.image} /> */ }
-
+        View style = { styles.container } >
         <
         Image style = { styles.image }
         source = {
@@ -71,7 +70,7 @@ const Async = () => {
         onPress = {
             () => save() } >
         <
-        Text > Save < /Text> <
+        Text > Save name < /Text> <
         /TouchableOpacity>
 
         <
