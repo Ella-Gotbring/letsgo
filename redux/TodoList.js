@@ -3,12 +3,13 @@ import { Text, View, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
 export function TodoList() {
-    const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos);
+  console.log(todos);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Today I need to:</Text>
-      {todos.map((todo) => (
-        <Text style={styles.todoText} key={todo.id} >{`${index + 1}. ${
+      <Text style={styles.title}>Todo List</Text>
+      {todos.map((todo, index) => (
+        <Text style={styles.todoText} key={todo.id}>{`${index + 1}. ${
           todo.text
         }`}</Text>
       ))}

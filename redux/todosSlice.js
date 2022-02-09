@@ -4,13 +4,12 @@ let nextTodoId = 0;
 const todosSlice = createSlice({
   name: 'todos',
   initialState: [
-    //	{ id: 1, title: 'todo1', completed: false },
-    // 	{ id: 2, title: 'todo2', completed: false },
+
   ],
   reducers: {
     addTodo(state, action) {
-      state.push({ id: nextTodoId++, text: action.payload })
-    }
+      state.push({ id: nextTodoId++, text: action.payload, completed: false })
+    },
   }
 })
 
