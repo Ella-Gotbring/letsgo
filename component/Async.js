@@ -63,7 +63,7 @@ const Async = () => {
             (text) => setName(text) }
         />
 
-        <TouchableOpacity style = {styles.touchableOpacity}
+        <TouchableOpacity style = {styles.touchableOpacity1}
         onPress = {
         () => save() } >
         <Text>Save name</Text></TouchableOpacity>
@@ -106,6 +106,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 9,
     },
+    touchableOpacity1: {
+        justifyContent: "center",
+        alignSelf: "center",
+        borderRadius: 5,
+        marginTop: 25,
+        paddingHorizontal: 32,
+        paddingVertical: 10,
+        marginHorizontal: 32,
+        borderWidth: 2,
+        borderColor: "black",
+        backgroundColor: "#C6F5D3"
+    },
     touchableOpacity: {
         justifyContent: "center",
         alignSelf: "center",
@@ -116,6 +128,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 32,
         borderWidth: 2,
         borderColor: "black",
+        backgroundColor: "#Ce4545"
     }
 })
 

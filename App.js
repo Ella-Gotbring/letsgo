@@ -1,12 +1,8 @@
-import { StyleSheet, Platform } from 'react-native';
-import NavigationTabs from './navigation/NavigationTabs';
 import React from 'react';
+import { StyleSheet } from 'react-native';
+import NavigationTabs from './navigation/NavigationTabs';
 import { Provider } from 'react-redux';
-import logger from 'redux-logger';
-import {createStore, applyMiddleware} from 'redux';
-import rootReducer from './reducers/rootReducer';
-
-const store = createStore(rootReducer, applyMiddleware(logger));
+import { store } from './navigation/store';
 
 export default function App() {
     return ( 
